@@ -2,395 +2,292 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
-    <title>Vitaly Pestov CV</title>
+    <title>Vitalik Pestov — BD Web3 / Partnership Lead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-bg: #0e0e0e;
+            --color-surface: #181818;
+            --color-sidebar: #141414;
+            --color-white: #ffffff;
+            --color-light: #e6e6e6;
+            --color-gray: #a0a0a0;
+            --color-muted: #6e6e6e;
+            --color-accent: #ecb830;
+            --color-accent-hover: #f5cb50;
+            --color-border: #2a2a2a;
+            --radius: 8px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', sans-serif; background: var(--color-bg); color: var(--color-light); line-height: 1.65; font-size: 15px; }
+        a { color: var(--color-accent); text-decoration: none; transition: color .2s; }
+        a:hover { color: var(--color-accent-hover); }
+        .page { display: flex; min-height: 100vh; max-width: 1400px; margin: 0 auto; }
+        .sidebar { width: 320px; min-width: 320px; background: var(--color-sidebar); padding: 2.5rem 2rem; border-right: 1px solid var(--color-border); display: flex; flex-direction: column; }
+        .main { flex: 1; padding: 2.5rem 3rem; }
+        .avatar-wrap { text-align: center; margin-bottom: 2rem; }
+        .avatar { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-accent); }
+        .sidebar-section { margin-bottom: 2rem; }
+        .sidebar-section:last-child { margin-bottom: 0; }
+        .sidebar-title { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15rem; color: var(--color-accent); margin-bottom: .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--color-border); }
+        .contact-list { list-style: none; }
+        .contact-list li { display: flex; align-items: center; gap: .6rem; margin-bottom: .65rem; font-size: .88rem; color: var(--color-light); word-break: break-all; }
+        .contact-list li svg { flex-shrink: 0; width: 18px; height: 18px; fill: var(--color-accent); }
+        .btn-cv { display: inline-block; width: 100%; text-align: center; padding: .75rem 1.2rem; background: var(--color-accent); color: var(--color-bg); font-weight: 700; font-size: .9rem; border-radius: var(--radius); transition: background .2s; margin-bottom: 2rem; }
+        .btn-cv:hover { background: var(--color-accent-hover); color: var(--color-bg); }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+        .skill-tag { background: var(--color-border); color: var(--color-light); padding: .25rem .65rem; border-radius: 4px; font-size: .78rem; }
+        .lang-item { margin-bottom: .4rem; font-size: .88rem; color: var(--color-light); }
+        .lang-item strong { color: var(--color-white); }
+        .header { margin-bottom: 2.5rem; }
+        .header h1 { font-size: 2.4rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15rem; color: var(--color-white); margin-bottom: .3rem; }
+        .header .subtitle { font-size: 1.1rem; color: var(--color-accent); font-weight: 400; letter-spacing: .05rem; }
+        .section { margin-bottom: 2.5rem; }
+        .section-title { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12rem; color: var(--color-accent); margin-bottom: 1rem; padding-bottom: .5rem; border-bottom: 2px solid var(--color-accent); }
+        .section p, .section li { color: var(--color-light); font-size: .92rem; }
+        .section p { margin-bottom: .8rem; }
+        .competency { margin-bottom: .8rem; }
+        .competency strong { color: var(--color-white); }
+        .job { margin-bottom: 2rem; }
+        .job:last-child { margin-bottom: 0; }
+        .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: .15rem; }
+        .job-company { font-size: 1.05rem; font-weight: 700; color: var(--color-white); }
+        .job-role { font-weight: 400; color: var(--color-accent); }
+        .job-dates { font-size: .85rem; color: var(--color-muted); white-space: nowrap; }
+        .job-location { font-size: .82rem; color: var(--color-muted); margin-bottom: .5rem; }
+        .job ul { list-style: none; padding: 0; }
+        .job ul li { position: relative; padding-left: 1rem; margin-bottom: .45rem; font-size: .88rem; color: var(--color-light); }
+        .job ul li::before { content: ''; position: absolute; left: 0; top: .55em; width: 5px; height: 5px; background: var(--color-accent); border-radius: 50%; }
+        .job ul li strong { color: var(--color-white); }
+        .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+        .case-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius); padding: 1.3rem; transition: border-color .2s; }
+        .case-card:hover { border-color: var(--color-accent); }
+        .case-card h4 { color: var(--color-white); margin-bottom: .4rem; font-size: .95rem; }
+        .case-card p { font-size: .82rem; color: var(--color-gray); margin-bottom: 0; }
+        .case-metric { color: var(--color-accent); font-weight: 700; font-size: 1.3rem; display: block; margin-bottom: .3rem; }
+        .edu-item { margin-bottom: .6rem; }
+        .edu-item strong { color: var(--color-white); display: block; font-size: .9rem; }
+        .edu-item span { color: var(--color-gray); font-size: .82rem; }
+        .footer { text-align: center; padding: 1.5rem 2rem; background: var(--color-sidebar); border-top: 1px solid var(--color-border); font-size: .8rem; color: var(--color-muted); }
+        .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: .6rem; }
+        .footer-links a { color: var(--color-gray); }
+        .footer-links a:hover { color: var(--color-accent); }
+        .footer-links svg { width: 20px; height: 20px; fill: currentColor; }
+        @media (max-width: 900px) { .page { flex-direction: column; } .sidebar { width: 100%; min-width: 0; border-right: none; border-bottom: 1px solid var(--color-border); } .main { padding: 2rem 1.5rem; } .header h1 { font-size: 1.6rem; } }
+        @media (max-width: 576px) { .sidebar { padding: 1.5rem 1.2rem; } .main { padding: 1.5rem 1rem; } .header h1 { font-size: 1.3rem; } .job-header { flex-direction: column; } }
+    </style>
 </head>
-<body>   
-    <main class="main">
-        <div class="container main-container">
-            <div class="left-col">
-                <div class="hamburger">
-                    <div class="line line1"></div>
-                    <div class="line line2"></div>
-                    <div class="line line3"></div>
+<body>
+<div class="page">
+    <aside class="sidebar">
+        <div class="avatar-wrap">
+            <img class="avatar" src="assets/img/Vitalik_avatar.jpg" alt="Vitalik Pestov">
+        </div>
+        <div class="sidebar-section" id="contacts">
+            <div class="sidebar-title">Contact</div>
+            <ul class="contact-list">
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.75 3.97-1.73 6.62-2.87 7.95-3.44 3.79-1.58 4.58-1.85 5.09-1.86.11 0 .37.03.53.17.14.12.18.28.2.47-.01.06.01.24 0 .37z"/></svg>
+                    <a href="https://t.me/Vitalik_BDinWeb3" target="_blank">@Vitalik_BDinWeb3</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:vitalikpestov@gmail.com">vitalikpestov@gmail.com</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <a href="https://www.linkedin.com/in/vitalik-bd-in-web3/" target="_blank">vitalik-bd-in-web3</a>
+                </li>
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z"/></svg>
+                    <span>Dubai / Vietnam</span>
+                </li>
+            </ul>
+        </div>
+        <a class="btn-cv" href="Vitalik_Pestov_CV.pdf" download="Vitalik_Pestov_CV.pdf">Get PDF CV</a>
+        <div class="sidebar-section" id="skills">
+            <div class="sidebar-title">Skills</div>
+            <div class="skill-tags">
+                <span class="skill-tag">GTM Strategy</span>
+                <span class="skill-tag">Pipeline Management</span>
+                <span class="skill-tag">Revenue Growth</span>
+                <span class="skill-tag">Deal Structuring</span>
+                <span class="skill-tag">Partner Ecosystem</span>
+                <span class="skill-tag">B2B Enterprise Sales</span>
+                <span class="skill-tag">Stakeholder Management</span>
+                <span class="skill-tag">Business Scaling</span>
+                <span class="skill-tag">Go-to-Market Execution</span>
+                <span class="skill-tag">HubSpot</span>
+                <span class="skill-tag">GetSales</span>
+                <span class="skill-tag">nReach</span>
+                <span class="skill-tag">Apollo</span>
+                <span class="skill-tag">Instantly</span>
+                <span class="skill-tag">Clay</span>
+                <span class="skill-tag">Speedo</span>
+                <span class="skill-tag">Telegram Automation</span>
+                <span class="skill-tag">LinkedIn Outreach</span>
+                <span class="skill-tag">Prompt Engineering</span>
+                <span class="skill-tag">BD Workflows</span>
+                <span class="skill-tag">Lead Generation</span>
+                <span class="skill-tag">CRM Optimization</span>
+                <span class="skill-tag">AI-Augmented Outreach</span>
+                <span class="skill-tag">Sales Leadership</span>
+                <span class="skill-tag">Onboarding Systems</span>
+                <span class="skill-tag">Cold Outreach</span>
+                <span class="skill-tag">Conference Networking</span>
+            </div>
+        </div>
+        <div class="sidebar-section" id="education">
+            <div class="sidebar-title">Education</div>
+            <div class="edu-item">
+                <strong>Minsk State University</strong>
+                <span>Bachelor of Science, Automation Engineering Technology</span>
+            </div>
+        </div>
+        <div class="sidebar-section" id="languages">
+            <div class="sidebar-title">Languages</div>
+            <div class="lang-item"><strong>English</strong> — Intermediate (B1)</div>
+            <div class="lang-item"><strong>Russian</strong> — Native</div>
+        </div>
+    </aside>
+    <div class="main">
+        <div class="header">
+            <h1>Vitalik Pestov</h1>
+            <div class="subtitle">Business Development Web3 / Partnership Lead</div>
+        </div>
+        <div class="section" id="about">
+            <div class="section-title">Career Profile</div>
+            <p>Business Development leader with <strong>10+ years in sales (5+ in Web3, AI, and fintech)</strong>, specializing in building partnership ecosystems and closing high-value deals from cold outreach to contract signature. Generated <strong>$1.2M+ in revenue across 210+ deals</strong> (including 18 enterprise deals averaging $120K) in DeFi, TradFi, and blockchain infrastructure.</p>
+            <p>Built BD functions from scratch at multiple early-stage companies — scaling global partner networks of 200+ exchanges, VCs, market makers, and blockchain projects across MENA, SEA, LATAM, and CIS.</p>
+            <p><strong>5 years of exclusive C-level engagements</strong> — negotiating directly with CEOs, CBDOs, CMOs, COOs, and Founders. Combines dealmaker instinct with a systems mindset — leveraging AI-driven outreach automation to increase pipeline velocity without sacrificing relationship quality.</p>
+        </div>
+        <div class="section">
+            <div class="section-title">Core Competencies</div>
+            <div class="competency"><strong>Business Development &amp; Partnerships</strong> — Strategic sales cycles, ecosystem expansion, cross-sector Web3/AI/fintech collaborations, high-value deal negotiation from cold outreach to close.</div>
+            <div class="competency"><strong>Lead Generation &amp; Automation</strong> — Outreach automation via Telegram + LinkedIn (GetSales, nReach, Apollo, Instantly, Speedo, Clay), CRM optimization (HubSpot), high-conversion pipeline systems at scale.</div>
+            <div class="competency"><strong>Sales Leadership</strong> — Built onboarding systems from scratch; served as Playing Coach — achieved 38% increase in new managers' first closed deal within 2 months. 7+ years leading sales and BD teams.</div>
+            <div class="competency"><strong>AI-Augmented BD Systems</strong> — Designing full-stack outreach engines using Clay, Apollo, Instantly, and GetSales to build self-filling pipelines that generate consistent qualified lead flow for Web3 and fintech startups.</div>
+        </div>
+        <div class="section" id="experience">
+            <div class="section-title">Professional Experience</div>
+            <div class="job">
+                <div class="job-header">
+                    <div><span class="job-company">Dealelegate</span> <span class="job-role"> · Business Development Manager</span></div>
+                    <div class="job-dates">Jul 2025 — Present</div>
                 </div>
-                <section class="section section--avatar">
-                    <img class="avatar__img" src="assets/img/Vitalik_avatar.jpg" alt="photo of Siarhei">
-                </section>
-                <section class="section section--name">
-                    <h1 class="name">Vitaly Pestov</h1>
-                    <h2 class="position">Business Development Manager <br>at Listing.Help</h2>
-                </section>
-                <section id="contacts" class="section">
-                    <h2 class="title">Contacts</h2>
-                    <ul class="list">
-                        <li class="list__item">
-                            <img src="./assets/svg/icon-telegram.svg" class="list__icon" alt="Icon">
-                            <a href="https://t.me/Listing_on_CEX" class="list__link">@Listing_on_CEX</a>
-                        </li>
-                        <li class="list__item">
-                            <img src="./assets/svg/icon-email.svg" class="list__icon" alt="Icon">
-                            <a href="mailto:vu@listing.help" class="list__link">vu@listing.help</a>
-                        </li>
-                        <li class="list__item">
-                            <img src="./assets/svg/icon-linkedin.svg" class="list__icon" alt="Icon">
-                            <a href="https://www.linkedin.com/in/vitalipestov/" class="list__link">vitalipestov</a>
-                        </li>
-                        <li class="list__item">
-                            <img src="./assets/svg/icon-location.svg" class="list__icon" alt="Icon">
-                            <p class="list__text">Location: Dubai</p>
-                            <img src="./assets/svg/icon-flag_uae.svg" class="list__icon list__icon--flag" alt="Flag UAE">
-                        </li>
-                    </ul>
-                </section>
-                <section id="listings" class="section">
-                    <h2 class="title">Listings</h2>
-                    <p>We will select the best exchange based on our experience and deep understanding of your goal</p>
-                    <a href="https://docs.google.com/spreadsheets/d/1S67k7brNzuxgXwXUFvLtcpuLc-eimYIQJTziTZP4Log/edit#gid=1007133435" class="button" target="_blank">
-                        Get the price list
-                    </a>
-                </section>
-                <section id="skills" class="section">
-                    <h2 class="title">Additional options</h2>
-                    <p>In addition to listing on CEX, we are happy to connect with our partners.They can be useful with:</p>
-                    <ul class="list list--marked">
-                        <li class="list__item">
-                            <p class="list__text">Marketing</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Market Making (MM)</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Liquidity provider</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Jurisprudence</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Tokenomics</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Development crypto solutions</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">VC funds</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Web3 project accelerator</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Launchpads</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Smart contract audit</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">White Paper or Pitch Deck</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Safe access to DEX</p>
-                        </li>
-                    </ul>
-                </section>
-                <section id="languages" class="section">
-                    <h2 class="title">Languages</h2>
-                    <ul class="list">
-                        <li class="list__item">
-                            <p class="list__text">English (B1)</p>
-                        </li>
-                        <li class="list__item">
-                            <p class="list__text">Russian (native)</p>
-                        </li>
-                    </ul>
-                </section>
+                <div class="job-location">Dubai, UAE</div>
+                <ul>
+                    <li>BD-as-a-service delivery in complex Web3 niches — facilitated introductions to Tier-1 market leaders including <strong>Circle, AAVE, ByBit</strong>, and several Tier-1 VC funds.</li>
+                    <li>Created a proprietary BD conference playbook (now sold as standalone product) — generated <strong>73 qualified leads</strong> and closed 4 deals with average contract value <strong>$35,000</strong>.</li>
+                    <li>Delivered <strong>50+</strong> paid BD strategy consultations covering outreach systems, tool implementation, and go-to-market execution for Web3 startups.</li>
+                </ul>
             </div>
-            <div class="right-col">
-                <nav class="nav">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#contacts" class="nav__link">Contacts</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">About me</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#listings" class="nav__link">Listings</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#skills" class="nav__link">Options</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#projects" class="nav__link">Projects</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#languages" class="nav__link">Languages</a>
-                        </li>
-                    </ul>
-                </nav>
-                <div class="background"></div>
-                <section class="section section--name">
-                    <h1 class="name">Vitaly Pestov</h1>
-                    <h2 class="position">Business Development Manager <br>at Listing.Help</h2>
-                </section>
-                <section id="about" class="section">
-                    <h2 class="title title--hidden">About me</h2>
-                    <p class="about-text"><a href="https://listing.help" target="_blank" class="about-text__link">Listing.Help</a> - #1 Agency in the world for Listing projects on Crypto Exchanges.
-                    <p class="about-text">Since 2017, we have listed more than 1100 projects. We have helped SHIBA INU, TONCOIN, Syscoin, Metal, Parsiq, HEX, Proton, Roobi, Starlink and many other projects get listed on different exchanges. </p>
-                    <p class="about-text">We work directly through exchange owners and top management, so we provide our clients with prices below the official ones and organize listing in short time.</p>
-                    <p class="about-text">Directors of many top exchanges, including Binance, Huobi, Okex, Kucoin, and many others were speakers at the forum that we organize twice every year since 2017 - blockchain-life.com. This is one more reason why the prices for our customers are 15-35% lower than the direct prices.</p>
-                </section>
-                <section id="forum" class="section forum">
-                    <h3 class="forum__title">
-                        <span>Listing.Help is the organizer of</span>
-                        <a href="https://blockchain-life.com/asia/en/" target="_blank">
-                            <img src="assets/img/bl-life.png" class="forum__logo" alt="Forum">
-                        </a> 
-                    </h3>
-                    <div class="forum__photos">
-                        <div class="forum__photo-wrap">
-                            <img src="assets/img/forum1.jpg" alt="Forum photo" class="forum__photo">
-                        </div>
-                        <div class="forum__photo-wrap">
-                            <img src="assets/img/forum2.jpg" alt="Forum photo" class="forum__photo">
-                        </div>
-                        <div class="forum__photo-wrap">
-                            <img src="assets/img/forum3.jpg" alt="Forum photo" class="forum__photo">
-                        </div>
-                    </div>
-                </section>
-                <div class="section__line"></div>
-                <section id="projects" class="section">
-                    <h2 class="title title--no-border">Projects</h2>
-                    <div class="project-list">
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">TLOS</div>
-                                <img src="./assets/img/logo-telos.png" alt="Telos" class="project__img">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Telos</p>
-                                <a href="https://www.telos.net/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/telos/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">PBR</div>
-                                <img src="./assets/img/logo-polkabridge.png" alt="PolkaBridge" class="project__img">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">PolkaBridge</p>
-                                <a href="https://polkabridge.org/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/polkabridge/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">XDAO</div>
-                                <img src="./assets/img/logo-x-dao.png" alt="Xdao" class="project__img">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Xdao</p>
-                                <a href="https://www.xdao.app/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/ru/currencies/xdao/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">CRTS</div>
-                                <img src="./assets/img/logo-cratos.png" class="project__img" alt="Cratos">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Cratos</p>
-                                <a href="https://www.cratostoken.com/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/ru/currencies/cratos/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">FIO</div>
-                                <img src="./assets/img/logo-fio_protocol.png" class="project__img" alt="FIO Protocol">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">FIO Protocol</p>
-                                <a href="https://fioprotocol.io/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/fio-protocol/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">ADP</div>
-                                <img src="./assets/img/logo-adappter.png" class="project__img" alt="Adappter Token">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Adappter</p>
-                                <a href="https://adappter.io/eng.html" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/adappter-token/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">ARV</div>
-                                <img src="./assets/img/logo-ariva.png" class="project__img" alt="Ariva">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Ariva</p>
-                                <a href="https://ariva.digital/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/ariva/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">LNR</div>
-                                <img src="./assets/img/logo-lunar.png" class="project__img" alt="Lunar">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Lunar</p>
-                                <a href="https://adappter.io/eng.html" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/lunar-v2/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project"> 
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">LOVELY</div> 
-                                <img src="./assets/img/logo-lovely-inu.png" class="project__img" alt="Lovely Inu">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Lovely Inu</p>
-                                <a href="https://lovely.finance/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/lovely-inu/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                                <div class="project__front">
-                                <div class="project__info">WTC</div>
-                                <img src="./assets/img/logo-waltonchain.png" class="project__img" alt="Waltonchain">
-                                </div>
-                                <div class="project__back">
-                                <p class="project__title">Waltonchain</p>
-                                <a href="http://www.waltonchain.org/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/waltonchain/" class="project__link" target="_blank">CoinMarketCap</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                                <div class="project__front">
-                                <div class="project__info">SML</div>
-                                <img src="./assets/img/logo-saltmarble.png" class="project__img" alt="Saltmarble">
-                                </div>
-                                <div class="project__back">
-                                <p class="project__title">Saltmarble</p>
-                                <a href="http://ggdgame.saltmarble.io/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/saltmarble/" class="project__link" target="_blank">CoinMarketCap</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                                <div class="project__front">
-                                <div class="project__info">MANC</div>
-                                <img src="./assets/img/logo-mancium.png" class="project__img" alt="Mancium">
-                                </div>
-                                <div class="project__back">
-                                <p class="project__title">Mancium</p>
-                                <a href="https://www.mancium.io/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/mancium/" class="project__link" target="_blank">CoinMarketCap</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">SAITAMA</div>
-                                <img src="./assets/img/logo-saitama.png" class="project__img" alt="Saitama">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Saitama</p>
-                                <a href="http://www.saitacard.io/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/saitama-inu-new/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">NUM</div>
-                                <img src="./assets/img/logo-numbers.png" class="project__img" alt="Numbers Protocol">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Numbers Protocol</p>
-                                <a href="https://www.numbersprotocol.io/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/numbers-protocol/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                              <div class="project__front">
-                                <div class="project__info">BRG</div>
-                                <img src="./assets/img/logo-bridge-oracle.png" class="project__img" alt="Bridge Oracle">
-                              </div>
-                              <div class="project__back">
-                                <p class="project__title">Bridge Oracle</p>
-                                <a href="https://bridge.link/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/bridge-oracle/" class="project__link" target="_blank">CoinMarketCap</a>
-                              </div>
-                            </div>
-                        </div>
-                        <div class="project">
-                            <div class="project__inner">
-                                <div class="project__front">
-                                <div class="project__info">ALU</div>
-                                <img src="./assets/img/logo-altura.png" class="project__img" alt="Altura">
-                                </div>
-                                <div class="project__back">
-                                <p class="project__title">Altura</p>
-                                <a href="https://www.alturanft.com/" class="project__link" target="_blank">Web</a>
-                                <a href="https://coinmarketcap.com/currencies/altura/" class="project__link" target="_blank">CoinMarketCap</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <div class="job">
+                <div class="job-header">
+                    <div><span class="job-company">XFounders Accelerator</span> <span class="job-role"> · Business Development Manager</span></div>
+                    <div class="job-dates">Jun 2024 — Jul 2025</div>
+                </div>
+                <div class="job-location">Bali, Indonesia</div>
+                <ul>
+                    <li>Closed 2 sponsorship deals within first month, generating <strong>$40K</strong> in revenue and enabling the accelerator's successful launch.</li>
+                    <li>Built targeted VC/angel investor database from scratch using AI tools — co-developed outreach sequence achieving <strong>38% open rate</strong>, contributing to a successfully closed seed round.</li>
+                    <li>Built automated outreach funnel sourcing 64 startup candidates — 10 selected for new cohort in El Salvador.</li>
+                    <li>Recruited 4 industry experts (Marketing, HR, MM, VC) as season experts for Bali 2024 cohort, featured in Web3 reality show "Startup Warriors".</li>
+                    <li>Optimized cold outreach workflows — reduced subscription costs by <strong>$450/month</strong> without sacrificing output quality.</li>
+                    <li>Optimized sponsor/partnership offer templates in Notion — improved offer response conversion by <strong>11%</strong>.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <div class="job-header">
+                    <div><span class="job-company">Web3 BD Lead</span> <span class="job-role"> · Head of Team Growth / BD Manager</span></div>
+                    <div class="job-dates">Apr 2021 — Jul 2024</div>
+                </div>
+                <div class="job-location">Dubai, UAE</div>
+                <ul>
+                    <li>Closed <strong>210+ deals</strong> across DeFi, Meme, and TradFi sectors, generating <strong>$1.2M+</strong> in revenue — including 18 enterprise deals averaging <strong>$120K</strong>.</li>
+                    <li>Built new B2B partnership channel from scratch — cultivated <strong>120+</strong> strategic relationships across exchanges, VCs, launchpads, and blockchain projects, driving <strong>15%</strong> incremental lead growth MoM.</li>
+                    <li>Led BD efforts for exchange listings on Tier-1 platforms: OKX, ByBit, KuCoin, Gate.io, MEXC, BitFinex, and BitGet.</li>
+                    <li>Represented company at 9 international crypto conferences (Dubai, Bali, Singapore, Hong Kong) — generated <strong>75+ qualified leads</strong> and initiated 16 direct partner engagements.</li>
+                    <li>Identified critical UX issue in website lead capture form — escalated fix drove <strong>12%</strong> improvement in top-of-funnel conversion.</li>
+                    <li>Increased client LTV by <strong>27%</strong> through consultative relationship approach, driving <strong>~30%</strong> repeat purchase rate.</li>
+                    <li>Designed and delivered onboarding program — increased first-deal conversion among new hires by <strong>38%</strong> within 2 months.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <div class="job-header">
+                    <div><span class="job-company">Standard Development</span> <span class="job-role"> · Head of Sales Department</span></div>
+                    <div class="job-dates">May 2018 — Apr 2021</div>
+                </div>
+                <div class="job-location">Almaty, Kazakhstan</div>
+                <ul>
+                    <li>Built primary new-construction sales department from scratch — set up lead generation, integrated CRM, and configured end-to-end sales processes.</li>
+                    <li>Scaled to <strong>7 properties sold per month</strong> within 5 months of launch, with average deal value of <strong>$90,000</strong>.</li>
+                    <li>Led sales team across residential and commercial real estate during a period of sustained market growth.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <div class="job-header">
+                    <div><span class="job-company">Real Estate Agency "Status"</span> <span class="job-role"> · Sales Manager</span></div>
+                    <div class="job-dates">Jun 2015 — May 2018</div>
+                </div>
+                <div class="job-location">Almaty, Kazakhstan</div>
+                <ul>
+                    <li>Managed residential and commercial property sales in the competitive Almaty market over 3 years.</li>
+                </ul>
             </div>
         </div>
-    </main>
-    <footer class="footer">
-        <div class="container footer__wrapper">
-            <p class="footer__text">©2023 Vitaly Pestov</p>
-            <div class="footer__contacts">
-                <a href="https://t.me/VitaliyListingHelp" class="footer__link footer__link--telegram" target="_blank"></a>
-                <a href="mailto:vu@listing.help" class="footer__link footer__link--email" target="_blank"></a>
-                <a href="https://www.linkedin.com/in/vitalipestov/" class="footer__link footer__link--linkedin" target="_blank"></a>
+        <div class="section" id="casestudy">
+            <div class="section-title">Case Study</div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <span class="case-metric">$1.2M+</span>
+                    <h4>Revenue Generation</h4>
+                    <p>Closed 210+ deals across DeFi, Meme, and TradFi sectors including 18 enterprise deals averaging $120K at a Web3 agency over 3 years.</p>
+                </div>
+                <div class="case-card">
+                    <span class="case-metric">73 leads</span>
+                    <h4>Conference Playbook</h4>
+                    <p>Created a proprietary BD conference playbook at Dealelegate — generated 73 qualified leads and closed 4 deals ($35K avg).</p>
+                </div>
+                <div class="case-card">
+                    <span class="case-metric">$40K</span>
+                    <h4>Accelerator Launch</h4>
+                    <p>Closed 2 sponsorship deals within first month at XFounders Accelerator, enabling the program's successful launch in Bali.</p>
+                </div>
+                <div class="case-card">
+                    <span class="case-metric">120+</span>
+                    <h4>Partner Network</h4>
+                    <p>Built B2B partnership channel from scratch — 120+ strategic relationships across exchanges, VCs, launchpads, and blockchain projects.</p>
+                </div>
+                <div class="case-card">
+                    <span class="case-metric">38%</span>
+                    <h4>Onboarding Impact</h4>
+                    <p>Designed onboarding program that increased first-deal conversion among new BD hires by 38% within 2 months.</p>
+                </div>
+                <div class="case-card">
+                    <span class="case-metric">50+</span>
+                    <h4>BD Consultations</h4>
+                    <p>Delivered 50+ paid strategy consultations covering outreach systems, tool implementation, and GTM execution for Web3 startups.</p>
+                </div>
             </div>
         </div>
-    </footer>
-    <script src="js/index.js"></script>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-links">
+        <a href="https://t.me/Vitalik_BDinWeb3" target="_blank" title="Telegram">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.66-.52.36-1 .53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.41-.88.03-.24.37-.49 1.02-.75 3.97-1.73 6.62-2.87 7.95-3.44 3.79-1.58 4.58-1.85 5.09-1.86.11 0 .37.03.53.17.14.12.18.28.2.47-.01.06.01.24 0 .37z"/></svg>
+        </a>
+        <a href="mailto:vitalikpestov@gmail.com" title="Email">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/vitalik-bd-in-web3/" target="_blank" title="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h14m-.5 15.5v-5.3a3.26 3.26 0 00-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 011.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 001.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 00-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+    </div>
+    <div>© 2026 Vitalik Pestov. All rights reserved.</div>
+</footer>
 </body>
 </html>
