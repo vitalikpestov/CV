@@ -75,7 +75,23 @@
         .footer-links a { color: var(--color-gray); }
         .footer-links a:hover { color: var(--color-accent); }
         .footer-links svg { width: 20px; height: 20px; fill: currentColor; }
-        @media (max-width: 900px) { .page { flex-direction: column; } .sidebar { width: 100%; min-width: 0; border-right: none; border-bottom: 1px solid var(--color-border); } .main { padding: 2rem 1.5rem; } .header h1 { font-size: 1.6rem; } }
+        @media (max-width: 900px) {
+            .page { flex-direction: column; }
+            .sidebar { width: 100%; min-width: 0; border-right: none; display: contents; }
+            .main { display: contents; }
+            .avatar-wrap { order: 1; background: var(--color-sidebar); padding: 1.5rem 1.5rem 0; text-align: center; }
+            .header { order: 2; background: var(--color-sidebar); padding: 0.5rem 1.5rem 1.5rem; }
+            .sidebar-section#contacts { order: 3; background: var(--color-sidebar); padding: 0 1.5rem; }
+            .btn-cv { order: 4; margin: 1rem 1.5rem; width: calc(100% - 3rem); }
+            .section#about { order: 5; padding: 1.5rem; }
+            .section#casestudy { order: 6; padding: 0 1.5rem 1.5rem; }
+            .section:not(#about):not(#casestudy):not(#experience) { order: 7; padding: 0 1.5rem 1.5rem; }
+            .section#experience { order: 8; padding: 0 1.5rem 1.5rem; }
+            .sidebar-section#skills { order: 9; background: var(--color-sidebar); padding: 1rem 1.5rem; border-top: 1px solid var(--color-border); }
+            .sidebar-section#education { order: 10; background: var(--color-sidebar); padding: 0 1.5rem 0.5rem; }
+            .sidebar-section#languages { order: 11; background: var(--color-sidebar); padding: 0 1.5rem 1.5rem; }
+            .header h1 { font-size: 1.6rem; }
+        }
         @media (max-width: 576px) { .sidebar { padding: 1.5rem 1.2rem; } .main { padding: 1.5rem 1rem; } .header h1 { font-size: 1.3rem; } .job-header { flex-direction: column; } }
     </style>
 </head>
