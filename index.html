@@ -305,15 +305,15 @@
         }
 
         /* ── SIDEBAR NAV ── */
-        .sidebar-nav a {
+        .main-nav a {
             color: var(--color-accent);
             text-decoration: none;
             font-size: .88rem;
         }
-        .sidebar-nav a:hover {
+        .main-nav a:hover {
             color: var(--color-accent-hover);
         }
-        .sidebar-nav li {
+        .main-nav li {
             margin-bottom: .35rem;
         }
 
@@ -383,14 +383,7 @@
         <!-- Get PDF CV -->
         <a class="btn-cv" href="Vitalik_Pestov_CV.pdf" download="Vitalik_Pestov_CV.pdf" target="_blank" rel="noopener noreferrer" aria-label="Download CV as PDF (opens in new tab)">Get PDF CV</a>
 
-        <!-- Page Navigation -->
-        <nav aria-label="Page sections" class="sidebar-nav">
-            <ul style="list-style:none; padding:0; margin: 16px 0; display:flex; gap:12px; flex-wrap:wrap;">
-                <li><a href="#career-profile">Career Profile</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#case-study">Case Study</a></li>
-            </ul>
-        </nav>
+
 
         <!-- Skills -->
         <div class="sidebar-section" id="skills">
@@ -448,7 +441,7 @@
         <!-- Languages -->
         <div class="sidebar-section" id="languages">
             <div class="sidebar-title">Languages</div>
-            <div class="lang-item"><strong>English</strong> - Intermediate (B1)</div>
+            <div class="lang-item"><strong>English</strong> - Upper intermediate (B2)</div>
             <div class="lang-item"><strong>Russian</strong> - Native</div>
         </div>
 
@@ -456,6 +449,17 @@
 
     <!-- ══════════ MAIN CONTENT ══════════ -->
     <main id="main-content" class="main">
+
+        <!-- Page Navigation -->
+        <nav aria-label="Page sections" class="main-nav">
+            <ul style="list-style:none; padding:0; margin: 0 0 1.5rem; display:flex; gap:1.5rem; flex-wrap:wrap;">
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#case-study">Case Study</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#languages">Languages</a></li>
+            </ul>
+        </nav>
 
         <!-- Header -->
         <header class="header">
